@@ -11,6 +11,8 @@
           </elementProp>
         </collectionProp>
       </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
       <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults">
@@ -23,7 +25,7 @@
         <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
       </ConfigTestElement>
       <hashTree/>
-      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
         <collectionProp name="HeaderManager.headers">
           <elementProp name="" elementType="Header">
             <stringProp name="Header.name">Content-Type</stringProp>
@@ -36,25 +38,25 @@
         </collectionProp>
       </HeaderManager>
       <hashTree/>
-      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager">
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
         <collectionProp name="CookieManager.cookies"/>
         <boolProp name="CookieManager.clearEachIteration">true</boolProp>
         <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
       </CookieManager>
       <hashTree/>
-      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="TF_BookStore_Flow"/>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="TF_BookStore_Flow" enabled="true"/>
       <hashTree>
-        <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Tinker time (1-3 dtk)">
+        <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Tinker time (1-3 dtk)" enabled="true">
           <stringProp name="ConstantTimer.delay">1000</stringProp>
           <stringProp name="RandomTimer.range">2000</stringProp>
         </UniformRandomTimer>
         <hashTree/>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="01_Login">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="01_Login" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /Account/v1/GenerateToken">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /Account/v1/GenerateToken" enabled="true">
             <stringProp name="HTTPSampler.path">/Account/v1/GenerateToken</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -71,14 +73,14 @@
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - token">
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - token" enabled="true">
               <stringProp name="JSONPostProcessor.referenceNames">token</stringProp>
               <stringProp name="JSONPostProcessor.jsonPathExprs">$.token</stringProp>
               <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
               <stringProp name="JSONPostProcessor.defaultValues">TOKEN_NOT_FOUND</stringProp>
             </JSONPostProcessor>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_Status_200">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_Status_200" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
@@ -88,7 +90,7 @@
               <intProp name="Assertion.test_type">8</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Assertion_Status_Success">
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Assertion_Status_Success" enabled="true">
               <stringProp name="JSON_PATH">$.status</stringProp>
               <stringProp name="EXPECTED_VALUE">Success</stringProp>
               <boolProp name="JSONVALIDATION">true</boolProp>
@@ -97,7 +99,7 @@
               <boolProp name="ISREGEX">false</boolProp>
             </JSONPathAssertion>
             <hashTree/>
-            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Assertion_Token_tidak_Kosong">
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Assertion_Token_tidak_Kosong" enabled="true">
               <stringProp name="JSON_PATH">$.token</stringProp>
               <stringProp name="EXPECTED_VALUE">.+</stringProp>
               <boolProp name="JSONVALIDATION">true</boolProp>
@@ -107,7 +109,7 @@
             </JSONPathAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /Account/v1/Login">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /Account/v1/Login" enabled="true">
             <stringProp name="HTTPSampler.domain">${baseurl}</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -127,14 +129,14 @@
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - userId">
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - userId" enabled="true">
               <stringProp name="JSONPostProcessor.referenceNames">userId</stringProp>
               <stringProp name="JSONPostProcessor.jsonPathExprs">$.userId</stringProp>
               <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
               <stringProp name="JSONPostProcessor.defaultValues">USERID_NOT_FOUND</stringProp>
             </JSONPostProcessor>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_Status 200">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_Status 200" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
@@ -144,7 +146,7 @@
               <intProp name="Assertion.test_type">8</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Assertion_Token_tidak_Kosong">
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Assertion_Token_tidak_Kosong" enabled="true">
               <stringProp name="JSON_PATH">$.token</stringProp>
               <stringProp name="EXPECTED_VALUE">.+</stringProp>
               <boolProp name="JSONVALIDATION">true</boolProp>
@@ -153,7 +155,7 @@
               <boolProp name="ISREGEX">true</boolProp>
             </JSONPathAssertion>
             <hashTree/>
-            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Assertion_userId_tidak_Kosong ">
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Assertion_userId_tidak_Kosong " enabled="true">
               <stringProp name="JSON_PATH">$.userId</stringProp>
               <stringProp name="EXPECTED_VALUE">.+</stringProp>
               <boolProp name="JSONVALIDATION">true</boolProp>
@@ -164,12 +166,12 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="02_Browse_Books">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="02_Browse_Books" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /BookStore/v1/Books">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /BookStore/v1/Books" enabled="true">
             <stringProp name="HTTPSampler.domain">${baseurl}</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -183,7 +185,7 @@
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_Status_200">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_Status_200" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
@@ -193,7 +195,7 @@
               <intProp name="Assertion.test_type">8</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Assertion_Daftar_buku_tidak_kosong">
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Assertion_Daftar_buku_tidak_kosong" enabled="true">
               <stringProp name="JSON_PATH">$.books[0].isbn</stringProp>
               <stringProp name="EXPECTED_VALUE">.+</stringProp>
               <boolProp name="JSONVALIDATION">true</boolProp>
@@ -202,7 +204,7 @@
               <boolProp name="ISREGEX">true</boolProp>
             </JSONPathAssertion>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_ISBN_CSV_ada_di_Katalog">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_ISBN_CSV_ada_di_Katalog" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="-890476567">${isbn_csv}</stringProp>
               </collectionProp>
@@ -212,7 +214,7 @@
               <intProp name="Assertion.test_type">2</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - isbn(random)">
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - isbn(random)" enabled="true">
               <stringProp name="JSONPostProcessor.referenceNames">isbn</stringProp>
               <stringProp name="JSONPostProcessor.jsonPathExprs">$.books[*].isbn</stringProp>
               <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
@@ -221,12 +223,12 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="03_Select_Boook_Detail">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="03_Select_Boook_Detail" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /BookStore/v1/Book?ISBN=${isbn}">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /BookStore/v1/Book?ISBN=${isbn}" enabled="true">
             <stringProp name="HTTPSampler.domain">${baseurl}</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -240,7 +242,7 @@
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_Status_200">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_Status_200" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
@@ -259,7 +261,7 @@
               <boolProp name="ISREGEX">false</boolProp>
             </JSONPathAssertion>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_ISBN">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_ISBN" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="1212273104">${isbn}</stringProp>
               </collectionProp>
@@ -271,12 +273,12 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="04_Add_Book_To_Collection">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="04_Add_Book_To_Collection" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /BookStore/v1/Books">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /BookStore/v1/Books" enabled="true">
             <stringProp name="HTTPSampler.domain">${baseurl}</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -296,7 +298,7 @@
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager - Authorization">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager - Authorization" enabled="true">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Authorization</stringProp>
@@ -305,7 +307,7 @@
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert Status 201">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assert Status 201" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49587">201</stringProp>
               </collectionProp>
@@ -324,7 +326,7 @@
               <boolProp name="ISREGEX">false</boolProp>
             </JSONPathAssertion>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_ISBN_add">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_ISBN_add" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="1212273104">${isbn}</stringProp>
               </collectionProp>
@@ -336,12 +338,12 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="05_Cleanup_Delete_Books">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="05_Cleanup_Delete_Books" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DELETE /BookStore/v1/Books?UserId=${userId}">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DELETE /BookStore/v1/Books?UserId=${userId}" enabled="true">
             <stringProp name="HTTPSampler.domain">${baseurl}</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -355,7 +357,7 @@
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager - Authorization">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager - Authorization" enabled="true">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Authorization</stringProp>
@@ -364,7 +366,7 @@
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_Status_204">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion_Status_204" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49590">204</stringProp>
               </collectionProp>
@@ -400,7 +402,7 @@
           <stringProp name="variableNames">username,password</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /Account/v1/User (register)">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /Account/v1/User (register)" enabled="true">
           <stringProp name="HTTPSampler.domain">${baseurl}</stringProp>
           <stringProp name="HTTPSampler.port">443</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -432,7 +434,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="01_Baseline - 1_User_x_5_iterasi" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="01_Baseline - 1_User_x_5_iterasi">
         <intProp name="ThreadGroup.num_threads">1</intProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -443,7 +445,7 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV_Users">
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV_Users" enabled="true">
           <stringProp name="delimiter">,</stringProp>
           <stringProp name="fileEncoding">UTF-8</stringProp>
           <stringProp name="filename">users.csv</stringProp>
@@ -455,7 +457,7 @@
           <stringProp name="variableNames">username,password</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV_Books">
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV_Books" enabled="true">
           <stringProp name="filename">books.csv</stringProp>
           <stringProp name="fileEncoding">UTF-8</stringProp>
           <stringProp name="variableNames">isbn_csv</stringProp>
@@ -467,16 +469,16 @@
           <stringProp name="shareMode">shareMode.group</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_BookStore_Flow">
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_BookStore_Flow" enabled="true">
           <collectionProp name="ModuleController.node_path">
-            <stringProp name="436462013">DemoQA_BookStore_Performance</stringProp>
+            <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="436462013">DemoQA_BookStore_Performance</stringProp>
             <stringProp name="1666686786">TF_BookStore_Flow</stringProp>
           </collectionProp>
         </ModuleController>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="02_LoadTest_10_User">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="02_LoadTest_10_User" enabled="false">
         <intProp name="ThreadGroup.num_threads">10</intProp>
         <intProp name="ThreadGroup.ramp_time">20</intProp>
         <longProp name="ThreadGroup.duration">180</longProp>
@@ -513,16 +515,16 @@
           <stringProp name="shareMode">shareMode.group</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_BookStore_Flow">
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_BookStore_Flow" enabled="true">
           <collectionProp name="ModuleController.node_path">
-            <stringProp name="436462013">DemoQA_BookStore_Performance</stringProp>
+            <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="436462013">DemoQA_BookStore_Performance</stringProp>
             <stringProp name="1666686786">TF_BookStore_Flow</stringProp>
           </collectionProp>
         </ModuleController>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="03_LoadTest_50_User">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="03_LoadTest_50_User" enabled="false">
         <intProp name="ThreadGroup.num_threads">50</intProp>
         <intProp name="ThreadGroup.ramp_time">100</intProp>
         <longProp name="ThreadGroup.duration">300</longProp>
@@ -559,16 +561,16 @@
           <stringProp name="shareMode">shareMode.group</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_BookStore_Flow">
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_BookStore_Flow" enabled="true">
           <collectionProp name="ModuleController.node_path">
-            <stringProp name="436462013">DemoQA_BookStore_Performance</stringProp>
+            <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="436462013">DemoQA_BookStore_Performance</stringProp>
             <stringProp name="1666686786">TF_BookStore_Flow</stringProp>
           </collectionProp>
         </ModuleController>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="04_LoadTest_100_User">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="04_LoadTest_100_User" enabled="false">
         <intProp name="ThreadGroup.num_threads">100</intProp>
         <intProp name="ThreadGroup.ramp_time">200</intProp>
         <longProp name="ThreadGroup.duration">600</longProp>
@@ -605,19 +607,19 @@
           <stringProp name="shareMode">shareMode.group</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_BookStore_Flow">
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_BookStore_Flow" enabled="true">
           <collectionProp name="ModuleController.node_path">
-            <stringProp name="436462013">DemoQA_BookStore_Performance</stringProp>
+            <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="436462013">DemoQA_BookStore_Performance</stringProp>
             <stringProp name="1666686786">TF_BookStore_Flow</stringProp>
           </collectionProp>
         </ModuleController>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="05_StressTest_100_User_60s">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="05_StressTest_100_User_60s" enabled="false">
         <intProp name="ThreadGroup.num_threads">100</intProp>
         <intProp name="ThreadGroup.ramp_time">60</intProp>
-        <stringProp name="ThreadGroup.duration">300s</stringProp>
+        <longProp name="ThreadGroup.duration">300</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
@@ -651,16 +653,16 @@
           <stringProp name="shareMode">shareMode.group</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_BookStore_Flow">
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_BookStore_Flow" enabled="true">
           <collectionProp name="ModuleController.node_path">
-            <stringProp name="436462013">DemoQA_BookStore_Performance</stringProp>
+            <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="436462013">DemoQA_BookStore_Performance</stringProp>
             <stringProp name="1666686786">TF_BookStore_Flow</stringProp>
           </collectionProp>
         </ModuleController>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="06_SoakTest_30_User_30m">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="06_SoakTest_30_User_30m" enabled="false">
         <intProp name="ThreadGroup.num_threads">30</intProp>
         <intProp name="ThreadGroup.ramp_time">60</intProp>
         <longProp name="ThreadGroup.duration">1800</longProp>
@@ -697,9 +699,9 @@
           <stringProp name="shareMode">shareMode.group</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_BookStore_Flow">
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="MC_BookStore_Flow" enabled="true">
           <collectionProp name="ModuleController.node_path">
-            <stringProp name="436462013">DemoQA_BookStore_Performance</stringProp>
+            <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="436462013">DemoQA_BookStore_Performance</stringProp>
             <stringProp name="1666686786">TF_BookStore_Flow</stringProp>
           </collectionProp>
